@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>IBC deal-data improvement: a measurable use case</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f7f9fb",
+            "inverse-surface": "#2d3133",
+            "surface-tint": "#505e7e",
+            "surface-container-high": "#e6e8ea",
+            "inverse-primary": "#b8c6eb",
+            "on-secondary-container": "#36697e",
+            "on-secondary": "#ffffff",
+            "background": "#f7f9fb",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#9bcee6",
+            "on-secondary-fixed-variant": "#134d61",
+            "on-secondary-fixed": "#001f2a",
+            "surface-container-highest": "#e0e3e5",
+            "secondary": "#006d77",
+            "secondary-dark": "#004e55",
+            "tertiary-fixed": "#ffdbca",
+            "on-surface-variant": "#44474d",
+            "primary": "#051531",
+            "primary-container": "#1b2a47",
+            "on-surface": "#191c1e",
+            "secondary-container": "#b5e7ff",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#331200",
+            "on-primary-fixed-variant": "#384765",
+            "outline-variant": "#c5c6ce",
+            "primary-fixed": "#d8e2ff",
+            "surface-bright": "#f7f9fb",
+            "inverse-on-surface": "#eff1f3",
+            "on-tertiary-fixed-variant": "#763300",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-background": "#191c1e",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#bde9ff",
+            "on-primary-fixed": "#0b1b37",
+            "tertiary-fixed-dim": "#ffb68e",
+            "outline": "#75777e",
+            "primary-fixed-dim": "#b8c6eb",
+            "surface-container-low": "#f2f4f6",
+            "tertiary": "#2a0d00",
+            "surface-variant": "#e0e3e5",
+            "surface-dim": "#d8dadc",
+            "surface-container": "#eceef0",
+            "tertiary-container": "#4a1d00",
+            "on-primary-container": "#8391b4",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#e0742e"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "headline-lg": ["Newsreader", "serif"],
+            "metric-display": ["Inter", "sans-serif"],
+            "subhead-lead": ["Inter", "sans-serif"],
+            "display-hero": ["Newsreader", "serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-sm": ["Newsreader", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "legal-footer": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "tabular-data": ["Inter", "sans-serif"],
+            "headline-md": ["Newsreader", "serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-container selection:text-on-secondary-fixed-variant">
+<!-- Top Navigation Shell -->
+<header class="w-full bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-30">
+<div class="flex justify-between items-center w-full px-6 md:px-12 py-3.5 max-w-[1720px] mx-auto flex-wrap gap-4">
+<!-- Brand Anchor -->
+<div class="flex items-center gap-3">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="text-base md:text-lg font-semibold text-primary tracking-tight">
+          Illustrative AI Product &amp; Delivery Lead case study
+        </span>
+</div>
+<!-- Deck Navigation Tabs -->
+<nav aria-label="Deck Navigation" class="hidden md:flex items-center gap-8">
+<a class="border-b-2 border-secondary text-secondary font-semibold pb-1 text-sm tracking-wide focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-colors" href="#dmaic">
+          Problem &amp; DMAIC
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface pb-1 text-sm tracking-wide focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-colors" href="#hitl">
+          Human approval and control
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface pb-1 text-sm tracking-wide focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-colors" href="#kpis">
+          Benefits &amp; KPIs
+        </a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface hover:text-secondary hover:border-secondary transition-colors duration-150 active:opacity-90 text-sm font-medium focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none" type="button">
+<span class="material-symbols-outlined text-[18px]">slideshow</span>
+<span class="">Presenter Notes</span>
+</button>
+<button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-colors duration-150 active:opacity-90 text-sm font-medium shadow-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none" type="button">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+<span class="">Export Deck</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Executive Slide Container -->
+<main class="flex-grow flex items-center justify-center p-3 md:p-6 lg:p-8">
+<div class="w-full max-w-[1720px] bg-surface-container-lowest border border-outline-variant/80 rounded-2xl shadow-sm flex flex-col justify-between overflow-hidden">
+<!-- Slide Canvas Area -->
+<div class="p-6 md:p-9 lg:p-11 flex flex-col justify-between">
+<!-- Header & Executive Title Block -->
+<section class="w-full mb-6">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-4 border-b border-outline-variant/70">
+<div>
+
+<h1 class="text-3xl md:text-4xl lg:text-[42px] lg:leading-[48px] font-display-hero text-primary tracking-tight font-semibold">
+                IBC deal-data improvement: a measurable use case
+              </h1>
+<p class="text-base md:text-lg text-on-surface-variant mt-2 font-normal">
+                An operational improvement case, not an AI-first pitch
+              </p>
+</div>
+<!-- Public Context Figures: Refined compact horizontal metric band -->
+</div>
+</section>
+<!-- Main Narrative Grid (2 Columns: Editorial Origin & Destination Journey vs Connected DMAIC Rail) -->
+<div class="flex flex-col gap-6 w-full">
+<!-- 1. Top Band: The Stated Opportunity -->
+<section class="w-full bg-surface border border-outline-variant/70 rounded-xl p-5 md:p-6 shadow-xs">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="max-w-2xl space-y-2">
+<div class="inline-flex items-center gap-2">
+<span class="text-xs font-bold uppercase tracking-wider text-secondary bg-secondary/10 px-2.5 py-1 rounded">
+            The stated opportunity
+          </span>
+</div>
+<h2 class="text-xl md:text-2xl font-headline-sm text-primary font-medium leading-relaxed">
+          Supplier contracts, pricing sheets and compliance documents are fragmented, making it slower to access trusted deal terms.
+        </h2>
+<p class="text-base text-on-surface leading-relaxed mt-2 font-medium">Working hypothesis to validate: Deal information may be spread across supplier contracts, pricing sheets, compliance documents and portal records, making updates slower and harder to govern.</p>
+</div>
+<!-- Dispersed Source Material Visual Strip -->
+<div class="flex flex-col gap-2 shrink-0 lg:max-w-md w-full bg-surface-container-lowest border border-outline-variant/80 rounded-xl p-3.5 shadow-xs">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-1.5">
+<span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">inventory_2</span>
+            Dispersed source material
+          </span>
+<span class="text-[11px] text-on-surface-variant font-medium flex items-center gap-1">
+            Fragmented inputs <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2"><div class="bg-surface rounded-lg p-2.5 border border-outline-variant/60 text-center"><span class="material-symbols-outlined text-[20px] text-secondary block mx-auto mb-1">description</span><span class="text-sm font-bold text-primary block">Contracts</span><span class="text-xs text-on-surface-variant block truncate" title="Supplier terms">Schedules</span></div><div class="bg-surface rounded-lg p-2.5 border border-outline-variant/60 text-center"><span class="material-symbols-outlined text-[20px] text-secondary block mx-auto mb-1">table_chart</span><span class="text-sm font-bold text-primary block">Pricing</span><span class="text-xs text-on-surface-variant block truncate" title="Rebate tiers">Rebate tiers</span></div><div class="bg-surface rounded-lg p-2.5 border border-outline-variant/60 text-center"><span class="material-symbols-outlined text-[20px] text-secondary block mx-auto mb-1">mail</span><span class="text-sm font-bold text-primary block">Emails</span><span class="text-xs text-on-surface-variant block truncate" title="Off-system">Off-system</span></div><div class="bg-surface rounded-lg p-2.5 border border-outline-variant/60 text-center"><span class="material-symbols-outlined text-[20px] text-secondary block mx-auto mb-1">verified</span><span class="text-sm font-bold text-primary block">Compliance</span><span class="text-xs text-on-surface-variant block truncate" title="Certificates">Certificates</span></div></div>
+</div>
+</div>
+</section>
+<!-- 2. Middle Band: The Desired Operational Outcome & Success Criteria -->
+<section class="w-full bg-primary-container text-on-primary rounded-xl p-6 md:p-7 shadow-md relative overflow-hidden border border-primary/20">
+<div class="absolute -right-8 -bottom-8 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[180px]">dataset</span>
+</div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6"><div class="w-full flex flex-col gap-5"><div class="w-full"><div class="flex items-center gap-2 mb-2"><span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary-fixed"></span><span class="text-xs uppercase tracking-widest text-secondary-fixed font-bold">Operational Goal &amp; Design Principle</span></div><h3 class="text-xl md:text-2xl lg:text-[24px] font-headline-md font-medium text-white leading-relaxed">“Improve the portal record so it is complete, current and versioned — without creating a competing source of truth.”</h3></div><div class="w-full pt-4 border-t border-white/20"><div class="text-xs uppercase tracking-wider font-semibold text-secondary-fixed mb-3 flex items-center justify-between gap-4"><span class="">How success will be judged</span><span class="text-[11px] font-normal text-outline-variant">Outcome indicators</span></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full"><div class="bg-surface-container-lowest text-on-surface rounded-lg p-4 flex items-center gap-3.5 shadow-xs"><div class="w-10 h-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px] font-bold">south</span></div><div class="min-w-0"><span class="block text-[20px] font-bold text-primary leading-snug">Faster ↓</span><span class="block text-sm md:text-base text-on-surface-variant font-medium leading-normal">Update-to-proposal time</span></div></div><div class="bg-surface-container-lowest text-on-surface rounded-lg p-4 flex items-center gap-3.5 shadow-xs"><div class="w-10 h-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px] font-bold">north</span></div><div class="min-w-0"><span class="block text-[20px] font-bold text-primary leading-snug">More current ↑</span><span class="block text-sm md:text-base text-on-surface-variant font-medium leading-normal">Deal records within update SLA</span></div></div><div class="bg-surface-container-lowest text-on-surface rounded-lg p-4 flex items-center gap-3.5 shadow-xs"><div class="w-10 h-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px] font-bold">south</span></div><div class="min-w-0"><span class="block text-[20px] font-bold text-primary leading-snug">Fewer errors ↓</span><span class="block text-sm md:text-base text-on-surface-variant font-medium leading-normal">Stale-data incidents and corrections</span></div></div></div></div></div></div>
+</section>
+<!-- 3. Bottom Band: How I Would Approach the Work (DMAIC Horizontal Progress Rail) -->
+<section class="w-full bg-surface-container-low/70 border border-outline-variant/80 rounded-xl p-5 md:p-6">
+<div class="flex items-center justify-between pb-3 mb-4 border-b border-outline-variant/50 flex-wrap gap-2">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold uppercase tracking-wider text-secondary">
+          How I would approach the work
+        </span>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant tracking-wider uppercase">
+        DMAIC Progress Path
+      </span>
+</div>
+<!-- DMAIC Horizontal Connected Grid / Track -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-3.5 relative items-stretch"><div class="bg-surface-container-lowest border border-outline-variant/80 rounded-lg p-4 flex flex-col justify-between hover:border-secondary transition shadow-xs relative group"><div><div class="flex items-center justify-between mb-2"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-secondary text-on-secondary text-xs font-bold">1</span><span class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Phase 01</span></div><span class="block text-[15px] font-bold uppercase tracking-wider text-secondary mb-1.5">Define</span><p class="text-base text-on-surface font-normal leading-relaxed">Confirm the friction, user journeys and decision owners</p></div></div><div class="bg-surface-container-lowest border border-outline-variant/80 rounded-lg p-4 flex flex-col justify-between hover:border-secondary transition shadow-xs relative group"><div><div class="flex items-center justify-between mb-2"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-secondary text-on-secondary text-xs font-bold">2</span><span class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Phase 02</span></div><span class="block text-[15px] font-bold uppercase tracking-wider text-secondary mb-1.5">Measure</span><p class="text-base text-on-surface font-normal leading-relaxed">Set the baseline for update speed, currency and errors</p></div></div><div class="bg-surface-container-lowest border border-outline-variant/80 rounded-lg p-4 flex flex-col justify-between hover:border-secondary transition shadow-xs relative group"><div><div class="flex items-center justify-between mb-2"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-secondary text-on-secondary text-xs font-bold">3</span><span class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Phase 03</span></div><span class="block text-[15px] font-bold uppercase tracking-wider text-secondary mb-1.5">Analyse</span><p class="text-base text-on-surface font-normal leading-relaxed">Map sources, portal capability, data quality and controls</p></div></div><div class="bg-amber-50/70 border-2 border-[#b45309] rounded-lg p-4 flex flex-col justify-between shadow-sm ring-2 ring-amber-200/50 relative"><div><div class="flex items-center justify-between mb-2"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#b45309] text-white text-xs font-bold">4</span><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-[#b45309] text-white shadow-xs"><span class="material-symbols-outlined text-[14px]">bolt</span>Proposed pilot</span></div><span class="block text-[15px] font-bold uppercase tracking-wider text-[#b45309] mb-1.5">Improve</span><p class="text-base text-primary font-semibold leading-relaxed">Pilot extraction, validation and human-approved write-back</p></div></div><div class="bg-surface-container-lowest border border-outline-variant/80 rounded-lg p-4 flex flex-col justify-between hover:border-secondary transition shadow-xs relative group"><div><div class="flex items-center justify-between mb-2"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-secondary text-on-secondary text-xs font-bold">5</span><span class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Phase 05</span></div><span class="block text-[15px] font-bold uppercase tracking-wider text-secondary mb-1.5">Control</span><p class="text-base text-on-surface font-normal leading-relaxed">Keep measuring KPIs to ensure the process continues to deliver the intended benefits.</p></div></div></div>
+<!-- Anchored Method Statement Line -->
+<div class="mt-4 pt-3 border-t border-outline-variant/60 flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5 shrink-0">verified_user</span>
+<p class="text-base text-on-surface-variant leading-relaxed"><span class="font-bold text-primary">Method:</span> benefits-led, control-by-design improvement using DMAIC, delivery discovery and pilot with human approval before publication.</p>
+</div>
+</section>
+</div>
+<!-- Slide Provenance & Footnote Block -->
+<footer class="mt-6 pt-3.5 border-t border-outline-variant/60 flex flex-col sm:flex-row justify-between items-center text-xs md:text-sm text-on-surface-variant gap-2"><div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+<span class="font-semibold text-primary">Illustrative IBC deal-data improvement case</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">Context: 220+ merchants • 330+ locations • 175+ supplier partnerships</span>
+</div>
+<span class="text-center sm:text-right text-xs text-on-surface-variant">
+  Sources: IBC public website and user-provided "IBC Visit Microsoft" post, accessed 28 Sep 2026.
+</span></footer>
+</div>
+</div>
+</main>
+
+
+
+
+</body></html>
