@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Target workflow: AI proposes, commercial owner authorises — IBC Buying Group</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#f7f9fb",
+            "inverse-surface": "#1e242b",
+            "surface-tint": "#505e7e",
+            "surface-container-high": "#e6e8ea",
+            "inverse-primary": "#b8c6eb",
+            "on-secondary-container": "#134d61",
+            "on-secondary": "#ffffff",
+            "background": "#f7f9fb",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#9bcee6",
+            "on-secondary-fixed-variant": "#134d61",
+            "on-secondary-fixed": "#001f2a",
+            "surface-container-highest": "#e0e3e5",
+            "secondary": "#316479",
+            "tertiary-fixed": "#ffdbca",
+            "on-surface-variant": "#44474d",
+            "primary": "#051531",
+            "on-surface": "#191c1e",
+            "primary-container": "#1b2a47",
+            "secondary-container": "#e0f2fe",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#331200",
+            "on-primary-fixed-variant": "#384765",
+            "outline-variant": "#dbe0e6",
+            "primary-fixed": "#d8e2ff",
+            "surface-bright": "#f7f9fb",
+            "inverse-on-surface": "#eff1f3",
+            "on-tertiary-fixed-variant": "#763300",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-background": "#191c1e",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#bde9ff",
+            "on-primary-fixed": "#0b1b37",
+            "tertiary-fixed-dim": "#ffb68e",
+            "outline": "#75777e",
+            "primary-fixed-dim": "#b8c6eb",
+            "surface-container-low": "#f2f4f6",
+            "tertiary": "#2a0d00",
+            "surface-variant": "#e0e3e5",
+            "surface-dim": "#d8dadc",
+            "surface-container": "#eceef0",
+            "tertiary-container": "#4a1d00",
+            "on-primary-container": "#8391b4",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#e0742e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Newsreader", "serif"],
+            "metric-display": ["Inter", "sans-serif"],
+            "subhead-lead": ["Inter", "sans-serif"],
+            "display-hero": ["Newsreader", "serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-sm": ["Newsreader", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "legal-footer": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "tabular-data": ["Inter", "sans-serif"],
+            "headline-md": ["Newsreader", "serif"],
+            "code-mono": ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-secondary-container selection:text-primary min-h-screen flex flex-col justify-between">
+<!-- TOP SHELL: STRICT COMPONENT MAP (Preserved verbatim) -->
+<header class="w-full bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-12 py-3.5 max-w-screen-2xl mx-auto">
+<div class="flex items-center space-x-3">
+<span class="text-[17px] font-headline-sm font-semibold text-primary tracking-tight">
+        IBC Buying Group | Executive Presentation
+      </span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">v1.4 Discussion Draft</span>
+</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-on-surface pb-1 transition-colors text-[13px] font-label-md" href="#">Problem &amp; DMAIC</a>
+<a class="border-b-2 border-secondary text-secondary font-semibold pb-1 text-[13px] font-label-md" href="#">HITL Architecture</a>
+<a class="text-on-surface-variant hover:text-on-surface pb-1 transition-colors text-[13px] font-label-md" href="#">Benefits &amp; KPIs</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="flex items-center space-x-1.5 text-on-surface-variant hover:text-secondary transition-colors duration-150 text-[13px] font-label-md" title="Presenter Notes">
+<span class="material-symbols-outlined text-[18px]">slideshow</span>
+<span class="">Presenter Notes</span>
+</button>
+<button class="flex items-center space-x-1.5 bg-primary text-on-primary px-3.5 py-1.5 rounded hover:bg-primary-container transition-all duration-150 active:opacity-90 text-[13px] font-label-md">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span class="">Export Deck</span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN EXECUTIVE CANVAS -->
+<main class="w-full max-w-screen-2xl mx-auto px-12 py-5 flex-grow flex flex-col justify-between">
+<!-- SLIDE HEADER BLOCK -->
+<div class="mb-5">
+<div class="flex items-baseline justify-between">
+<h1 class="font-headline-lg text-[32px] lg:text-[34px] leading-tight text-primary font-semibold tracking-tight">
+        Target workflow: AI proposes, commercial owner authorises
+      </h1>
+<span class="text-[11px] font-label-sm text-secondary font-semibold tracking-widest uppercase">Slide 02 / Architectural Blueprint</span>
+</div>
+<p class="font-subhead-lead text-[15px] lg:text-[16px] text-on-surface-variant mt-1 max-w-4xl">
+      One controlled process supports clean-up, a new deal and a change to an existing deal
+    </p>
+<div class="w-full h-[1.5px] bg-secondary/30 mt-3"></div>
+</div>
+<!-- MAIN 2-COLUMN GRID (7.5 COLUMNS WORKFLOW & DECISIONS / 4.5 COLUMNS TECHNICAL APPENDIX) -->
+<div class="flex flex-col space-y-4 flex-grow">
+<!-- MAIN 5-STEP HERO PIPELINE -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-xs">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3 mb-4">
+<div class="flex items-center space-x-2.5">
+<span class="material-symbols-outlined text-secondary text-[22px]">schema</span>
+<div>
+<h2 class="text-[14px] font-bold uppercase tracking-wider text-primary">Controlled Update Workflow — Intake to Authoritative Record</h2>
+<p class="text-[11px] text-on-surface-variant">Unstructured ingestion converted to verified enterprise deal terms under strict human authority</p>
+</div>
+</div>
+<span class="bg-secondary/10 text-secondary border border-secondary/20 text-[10.5px] font-semibold px-2.5 py-1 rounded-full">AI create a draft for review.&nbsp; The approved portal record remains the source of truth</span>
+</div>
+<!-- 5-STEP LINEAR FLOW -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-2.5 items-stretch relative"><!-- Step 1: Supplier PDF / Email --><div class="relative bg-surface-container-low/70 border border-outline-variant rounded-xl p-3.5 flex flex-col justify-between hover:border-secondary/50 transition-all"><div><div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-on-surface-variant pb-1.5 border-b border-outline-variant/60 mb-2.5"><span class="flex items-center space-x-1.5"><span class="w-4 h-4 rounded-full bg-surface-container-high text-primary flex items-center justify-center text-[10px]">1</span><span class="">Source Intake</span></span><span class="material-symbols-outlined text-[15px] text-outline">upload_file</span></div><div class="text-[13px] font-bold text-primary mb-1">Internal email / supplier PDF</div><p class="text-[11px] text-on-surface-variant leading-snug">Unstructured intake: contracts, price sheets, amendments</p></div><div class="mt-3 pt-2 border-t border-outline-variant/50 flex items-center space-x-2 text-[10px] text-outline"><span class="material-symbols-outlined text-[13px]">mail</span><span class="">Inbound trigger</span></div><div class="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full bg-white border border-outline-variant shadow-2xs items-center justify-center text-secondary"><span class="material-symbols-outlined text-[14px]">arrow_forward</span></div></div><!-- Step 2: AI Proposes --><div class="relative bg-secondary-container/20 border border-secondary-container rounded-xl p-3.5 flex flex-col justify-between hover:border-secondary transition-all"><div><div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-secondary pb-1.5 border-b border-secondary/20 mb-2.5"><span class="flex items-center space-x-1.5"><span class="w-4 h-4 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-[10px]">2</span><span class="">AI Proposes</span></span><span class="bg-white text-secondary px-1.5 py-0.5 rounded text-[9px] font-bold border border-secondary/30">Model</span></div><div class="text-[13px] font-bold text-primary mb-1">Extracts Deal Terms</div><p class="text-[11px] text-on-surface-variant leading-snug">Identifies rebates, dates, product categories, and baseline evidence</p></div><div class="mt-3 pt-2 border-t border-secondary/20 flex items-center space-x-1.5 text-[10.5px] text-secondary font-medium"><span class="material-symbols-outlined text-[14px]">psychology</span><span class="">Structured proposal</span></div><div class="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full bg-white border border-secondary-container shadow-2xs items-center justify-center text-secondary"><span class="material-symbols-outlined text-[14px]">arrow_forward</span></div></div><!-- Step 3: Deterministic Validation --><div class="relative bg-surface-container-low/70 border border-outline-variant rounded-xl p-3.5 flex flex-col justify-between hover:border-primary/40 transition-all"><div><div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-on-surface-variant pb-1.5 border-b border-outline-variant/60 mb-2.5"><span class="flex items-center space-x-1.5"><span class="w-4 h-4 rounded-full bg-surface-container-high text-primary flex items-center justify-center text-[10px]">3</span><span class="">Deterministic</span></span><span class="bg-surface-container-high text-primary px-1.5 py-0.5 rounded text-[9px] font-bold">Rules</span></div><div class="text-[13px] font-bold text-primary mb-1">Checks &amp; Validates</div><p class="text-[11px] text-on-surface-variant leading-snug">Validates dates, required fields, deduplicates, flags conflicts</p></div><div class="mt-3 pt-2 border-t border-outline-variant/50 flex items-center space-x-1.5 text-[10.5px] text-primary font-medium"><span class="material-symbols-outlined text-[14px] text-secondary">rule</span><span class="">Integrity verification</span></div><div class="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full bg-white border border-outline-variant shadow-2xs items-center justify-center text-secondary"><span class="material-symbols-outlined text-[14px]">arrow_forward</span></div></div><!-- Step 4: Human Authorises (Warm amber accent) --><div class="relative bg-amber-50/60 border-2 border-amber-600/70 rounded-xl p-3.5 flex flex-col justify-between shadow-xs hover:border-amber-600 transition-all"><div><div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-amber-900 pb-1.5 border-b border-amber-300/80 mb-2.5"><span class="flex items-center space-x-1.5"><span class="w-4 h-4 rounded-full bg-amber-500 text-white flex items-center justify-center text-[10px] font-bold">4</span><span class="">Human Authorises</span></span><span class="bg-amber-100 text-amber-950 px-1.5 py-0.5 rounded text-[9px] font-bold border border-amber-300">Gatekeeper</span></div><div class="text-[13px] font-bold text-primary mb-1">Commercial Owner</div><p class="text-[11px] text-amber-950 font-medium leading-snug">Inspects evidence, approves, amends terms, or flags for escalation</p></div><div class="mt-3 pt-2 border-t border-amber-300/80 flex items-center space-x-1.5 text-[10.5px] text-amber-900 font-semibold"><span class="material-symbols-outlined text-[14px]">verified_user</span><span class="">100% human sign-off</span></div><div class="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full bg-white border border-amber-300 shadow-2xs items-center justify-center text-amber-600"><span class="material-symbols-outlined text-[14px]">arrow_forward</span></div></div><!-- Step 5: Authoritative Portal Record --><div class="bg-primary text-white border-2 border-primary rounded-xl p-3.5 flex flex-col justify-between shadow-xs hover:bg-primary-container transition-all"><div><div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-secondary-fixed pb-1.5 border-b border-white/20 mb-2.5"><span class="flex items-center space-x-1.5"><span class="w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center text-[10px]">5</span><span class="">System of Record</span></span><span class="bg-secondary text-white px-1.5 py-0.5 rounded text-[9px] font-bold tracking-wider">Authoritative</span></div><div class="text-[13px] font-bold text-white mb-1">Existing portal deal record</div><p class="text-[11px] text-surface-dim leading-snug">Updated or versioned record published as the single operational truth</p></div><div class="mt-3 pt-2 border-t border-white/20 flex items-center space-x-1.5 text-[10.5px] text-secondary-fixed font-semibold"><span class="material-symbols-outlined text-[14px]">database</span><span class="">Clean write-back</span></div></div></div>
+</div>
+<!-- ONGOING OPERATIONAL UPDATE LINE & COMPACT DECISION OUTCOMES -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+<!-- ONGOING UPDATE COMPACT STRIP (7 COLUMNS) -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col justify-between shadow-xs">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2 mb-3">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary text-[17px]">sync</span>
+<span class="text-[12px] font-bold uppercase tracking-wide text-primary">Ongoing Operational Update Loop</span>
+</div>
+<span class="text-[10.5px] text-secondary font-bold bg-secondary/10 px-2 py-0.5 rounded">Closed Loop</span>
+</div>
+<div class="grid grid-cols-4 gap-2 items-center text-center">
+<!-- Stage 2 Step A -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-2.5 flex flex-col justify-center items-center h-[76px]">
+<span class="material-symbols-outlined text-[18px] text-secondary mb-1">forward_to_inbox</span>
+<div class="text-[11px] font-bold text-primary leading-tight">Supplier update</div>
+<div class="text-[9.5px] text-on-surface-variant leading-tight">Email / PDF doc</div>
+</div>
+<!-- Stage 2 Step B -->
+<div class="bg-secondary-container/20 border border-secondary-container rounded-lg p-2.5 flex flex-col justify-center items-center h-[76px]">
+<span class="material-symbols-outlined text-[18px] text-secondary mb-1">smart_toy</span>
+<div class="text-[11px] font-bold text-primary leading-tight">AI proposes</div>
+<div class="text-[9.5px] text-on-surface-variant leading-tight">Proposed delta</div>
+</div>
+<!-- Stage 2 Step C -->
+<div class="bg-amber-50/70 border border-amber-300 rounded-lg p-2.5 flex flex-col justify-center items-center h-[76px]">
+<span class="material-symbols-outlined text-[18px] text-amber-600 mb-1">person_check</span>
+<div class="text-[11px] font-bold text-primary leading-tight">Commercial owner</div>
+<div class="text-[9.5px] text-amber-950 font-medium leading-tight">Confirms or amends</div>
+</div>
+<!-- Stage 2 Step D -->
+<div class="bg-surface-container-high border border-outline-variant rounded-lg p-2.5 flex flex-col justify-center items-center h-[76px]">
+<span class="material-symbols-outlined text-[18px] text-primary mb-1">sync_saved_locally</span>
+<div class="text-[11px] font-bold text-primary leading-tight">Approved update</div>
+<div class="text-[9.5px] text-on-surface-variant leading-tight">New portal version</div>
+</div>
+</div>
+</div>
+<!-- 4 DECISION OUTCOMES IN ONE HORIZONTAL STRIP (5 COLUMNS) -->
+<div class="lg:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col justify-between shadow-xs">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2 mb-3">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[17px]">call_split</span>
+<span class="text-[12px] font-bold uppercase tracking-wide text-primary">Standardised Outcomes</span>
+</div>
+<span class="text-[10.5px] text-on-surface-variant font-medium">Controlled Matrix</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-left">
+<div class="bg-surface border-l-4 border-l-secondary border border-outline-variant rounded-lg p-2 flex items-start space-x-2">
+<span class="material-symbols-outlined text-secondary text-[16px] mt-0.5">task_alt</span>
+<div>
+<div class="text-[11px] font-bold text-primary leading-tight">Match found</div>
+<div class="text-[10px] text-on-surface-variant leading-tight">New approved version</div>
+</div>
+</div>
+<div class="bg-surface border-l-4 border-l-primary border border-outline-variant rounded-lg p-2 flex items-start space-x-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">add_circle_outline</span>
+<div>
+<div class="text-[11px] font-bold text-primary leading-tight">No match</div>
+<div class="text-[10px] text-on-surface-variant leading-tight">New deal record (v1)</div>
+</div>
+</div>
+<div class="bg-surface border-l-4 border-l-amber-500 border border-outline-variant rounded-lg p-2 flex items-start space-x-2">
+<span class="material-symbols-outlined text-amber-600 text-[16px] mt-0.5">help_outline</span>
+<div>
+<div class="text-[11px] font-bold text-primary leading-tight">Unclear</div>
+<div class="text-[10px] text-on-surface-variant leading-tight">Human decision</div>
+</div>
+</div>
+<div class="bg-surface border-l-4 border-l-outline border border-outline-variant rounded-lg p-2 flex items-start space-x-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] mt-0.5">archive</span>
+<div>
+<div class="text-[11px] font-bold text-primary leading-tight">Deal ended</div>
+<div class="text-[10px] text-on-surface-variant leading-tight">Close; retain history</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- KEY GOVERNANCE BANNER -->
+<div class="bg-[#f0fdfa] border border-[#ccfbf1] rounded-xl px-4 py-2.5 flex flex-col sm:flex-row items-center justify-between text-[11.5px] gap-2">
+<div class="flex items-center space-x-2 text-[#0f766e]"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-bold">Control objective:</span><span class="text-on-surface-variant text-[11px]">no update is published without commercial approval, linked source evidence and version history.</span></div>
+<div class="text-primary font-bold tracking-tight bg-white border border-[#ccfbf1] px-3 py-1 rounded-lg text-[11px]">
+      Principle: Machine proposes, Commercial owner decides.
+    </div>
+</div>
+<!-- EXPANDABLE RUNTIME & TECHNICAL IMPLEMENTATION DRAWER -->
+<details class="bg-surface-container-lowest border border-outline-variant rounded-xl group transition-all shadow-xs" open="">
+<summary class="cursor-pointer list-none flex items-center justify-between p-3.5 px-4 text-on-surface-variant hover:text-primary transition-colors">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">terminal</span>
+<span class="text-[12px] font-bold uppercase tracking-wider text-primary">Implementation &amp; Runtime Detail (IBC Schema Specification)</span>
+</div>
+<div class="flex items-center space-x-2 text-[11px] text-secondary font-semibold">
+<span class="">Show JSON Payload &amp; Deterministic Steps</span>
+<span class="material-symbols-outlined text-[16px] transition-transform group-open:rotate-180">expand_more</span>
+</div>
+</summary>
+<div class="p-4 pt-1 border-t border-outline-variant bg-surface-container-low/40">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+<!-- JSON Proposal Payload -->
+<div class="bg-inverse-surface text-inverse-on-surface rounded-lg p-3 font-code-mono text-[10.5px]">
+<div class="flex justify-between items-center border-b border-outline/40 pb-1.5 mb-1.5 text-[9px] text-outline-variant uppercase tracking-wider font-sans font-bold">
+<span class="">Proposal Payload</span>
+<span class="">JSON Schema</span>
+</div>
+<pre class="leading-relaxed overflow-x-auto"><code>{
+  <span class="text-[#93c5fd]">"operation"</span>: <span class="text-[#86efac]">"create_or_update"</span>,
+  <span class="text-[#93c5fd]">"supplier_id"</span>: <span class="text-[#86efac]">"SUP-123"</span>,
+  <span class="text-[#93c5fd]">"deal_id"</span>: <span class="text-[#fca5a5]">null</span>,
+  <span class="text-[#93c5fd]">"status"</span>: <span class="text-[#fde047]">"pending_approval"</span>
+}</code></pre>
+</div>
+<!-- Deterministic Steps -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 font-code-mono text-[10.5px] flex flex-col justify-between">
+<div class="flex justify-between items-center border-b border-outline-variant pb-1.5 mb-1.5 text-[9px] text-on-surface-variant uppercase tracking-wider font-sans font-bold">
+<span class="">Controlled Pipeline Functions</span>
+<span class="">Deterministic</span>
+</div>
+<ul class="space-y-1 text-primary">
+<li class=""><span class="text-secondary font-bold">1.</span> extract_proposed_terms()</li>
+<li class=""><span class="text-secondary font-bold">2.</span> find_matching_deal_record()</li>
+<li class=""><span class="text-secondary font-bold">3.</span> validate_proposal()</li>
+<li class=""><span class="text-secondary font-bold">4.</span> human_approval()</li>
+<li class=""><span class="text-secondary font-bold">5.</span> publish_version()</li>
+<li class=""><span class="text-secondary font-bold">6.</span> write_back_to_portal()</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- FOOTER CALLOUT BANNER -->
+<div class="w-full bg-[#f8fafc] border border-outline-variant rounded-lg p-2.5 my-3 flex items-center justify-between shadow-2xs">
+<div class="flex items-center space-x-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<span class="text-[13px] font-body-md text-primary font-medium">
+        Controlled write-back: portal API, approved import, or work queue. The portal remains the operational source of truth.
+      </span>
+</div>
+<div class="flex items-center space-x-2 text-[11px] font-label-sm text-secondary font-bold"><span class="">HUMAN APPROVAL REQUIRED</span><span class="inline-block w-2 h-2 rounded-full bg-secondary animate-pulse"></span></div>
+</div>
+<!-- PROVENANCE FOOTNOTE -->
+<div class="flex justify-between items-center text-[10.5px] font-legal-footer text-outline pb-0.5">
+<div class="">Illustrative target process to validate through discovery. AI handles unstructured intake, not commercial authority.</div>
+<div class="">IBC Buying Group — Commercial Proposal Flow</div>
+</div>
+</main>
+<!-- BOTTOM SHELL: EXACT SHARED COMPONENT -->
+<footer class="w-full bg-surface border-t border-outline-variant">
+<div class="flex justify-between items-center w-full px-12 py-3 max-w-screen-2xl mx-auto">
+<div class="text-[11px] font-legal-footer text-on-surface-variant">IBC Buying Group AI Product &amp; Delivery Lead Strategy Deck</div>
+<div class="hidden md:flex items-center space-x-6 text-[12px] font-label-sm">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150" href="#">DMAIC Methodology v1.4</a>
+<a class="text-secondary font-semibold" href="#">Commercial Governance Protocol</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150" href="#">Baseline Valuation Model</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150" href="#">C-Suite Briefing Reference</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>
