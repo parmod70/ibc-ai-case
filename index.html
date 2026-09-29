@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Illustrative IBC deal-data improvement case">
+  <title>IBC deal-data improvement case</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23051531'/%3E%3Cpath d='M18 18h28v8H18zm0 14h28v14H18z' fill='%23006d77'/%3E%3C/svg%3E">
+  <style>
+    :root{--navy:#051531;--teal:#006d77;--bg:#eef2f5;--line:#c5c6ce;--muted:#44474d}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--navy);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px clamp(16px,4vw,54px);background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.brand{font-family:Georgia,serif;font-weight:700;font-size:1.05rem}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button,.controls button{border:1px solid transparent;border-radius:7px;background:transparent;color:var(--muted);padding:9px 11px;font:600 .84rem inherit;cursor:pointer}.nav button:hover,.nav button:focus-visible{border-color:var(--teal);color:var(--teal);outline:0}.nav button[aria-current="page"]{background:var(--navy);color:#fff}.controls{display:flex;gap:4px}.controls button{border-color:var(--line);color:var(--navy)}.controls button:disabled{opacity:.45;cursor:not-allowed}.frame-wrap{max-width:1720px;margin:24px auto;background:#fff;box-shadow:0 14px 40px #05153120}.frame-wrap iframe{display:block;width:100%;height:1080px;border:0}.caption{max-width:1720px;margin:0 auto;padding:0 10px 28px;color:var(--muted);font-size:.82rem}@media(max-width:900px){.bar{align-items:flex-start}.brand{padding-top:9px}.controls{display:none}.frame-wrap{margin:0}.frame-wrap iframe{height:1240px}.caption{padding:14px 20px 26px}}@media(max-width:620px){.bar{display:block}.nav{margin-top:10px}.frame-wrap iframe{height:1450px}}
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">Illustrative IBC case</div>
+    <nav class="nav" aria-label="Presentation slides">
+      <button type="button" data-slide="0" aria-current="page">Opportunity</button>
+      <button type="button" data-slide="1">Human approval</button>
+      <button type="button" data-slide="2">Benefits &amp; KPIs</button>
+      <button type="button" data-slide="3">Delivery method</button>
+    </nav>
+    <div class="controls" aria-label="Slide controls">
+      <button type="button" id="previous" aria-label="Previous slide">Previous</button>
+      <button type="button" id="next" aria-label="Next slide">Next</button>
+    </div>
+  </header>
+  <main class="frame-wrap">
+    <iframe id="slide" title="IBC deal-data improvement case" src="slides/01-opportunity.html"></iframe>
+  </main>
+  <p class="caption">Use the navigation above or the left and right arrow keys to move through the four screens. This is an illustrative case based on public IBC material and stated discovery hypotheses.</p>
+  <script>
+    const slides = [
+      'slides/01-opportunity.html',
+      'slides/02-human-approval.html',
+      'slides/03-benefits-kpis.html',
+      'slides/04-spec-driven-delivery.html'
+    ];
+    const frame = document.querySelector('#slide');
+    const buttons = [...document.querySelectorAll('[data-slide]')];
+    const previous = document.querySelector('#previous');
+    const next = document.querySelector('#next');
+    let current = Math.max(0, Math.min(slides.length - 1, Number(new URLSearchParams(location.search).get('slide')) || 0));
+    function show(index) {
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      frame.src = slides[current];
+      buttons.forEach((button, i) => button.setAttribute('aria-current', i === current ? 'page' : 'false'));
+      previous.disabled = current === 0;
+      next.disabled = current === slides.length - 1;
+      history.replaceState(null, '', `?slide=${current}`);
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    buttons.forEach((button, index) => button.addEventListener('click', () => show(index)));
+    previous.addEventListener('click', () => show(current - 1));
+    next.addEventListener('click', () => show(current + 1));
+    document.addEventListener('keydown', event => {
+      if (event.target.closest('input,textarea,select,button')) return;
+      if (event.key === 'ArrowLeft') show(current - 1);
+      if (event.key === 'ArrowRight') show(current + 1);
+    });
+    show(current);
+  </script>
+</body>
+</html>
